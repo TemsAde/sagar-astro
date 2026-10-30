@@ -6,20 +6,20 @@ import PageHeader from '../components/PageHeader.astro';
 // Replace these questions and answers with real ones for Sagar.
 const faqs = [
   {
-    q: 'What are your support hours?',
-    a: 'Our team is available Monday to Friday, 9:00 AM to 5:00 PM EST. We aim to respond to all inquiries within 24 business hours.',
+    q: 'How can I know if a product is available?',
+    a: 'You can check our website for product availability or contact our customer support team for confirmation.',
   },
   {
-    q: 'How do I reset my password?',
-    a: 'Go to the login page and click "Forgot Password?". Enter the email associated with your account, and we will send you a reset link.',
+    q: 'What are your business hours?',
+    a: 'Business hours are Monday to Friday, 9:00 AM to 5:00 PM (PST). We are closed on weekends and public holidays.',
   },
   {
-    q: 'Do you offer custom enterprise plans?',
-    a: 'Yes, we offer tailored solutions for large teams. Please select "Partnership Opportunity" in the contact form, and our sales team will reach out.',
+    q: 'How do I join the Sagar Vitaceuticals team?',
+    a: 'Check out our Careers page for current openings and application instructions. We are always looking for talented individuals to join our team.',
   },
   {
-    q: 'Where is your company located?',
-    a: 'We are a globally distributed team, with our headquarters located in San Francisco, CA. We serve customers worldwide.',
+    q: 'Where can I purchase your products?',
+    a: 'We are a nationally distributed team, with our headquarters located in Lagos. Send an email to sales@svnl.in to request a quote or find a distributor near you.',
   },
 ];
 
@@ -54,20 +54,7 @@ const fieldClasses =
           <!-- Success/Error Message Area -->
           <div id="formResponse" class="hidden mb-6 p-4 rounded-lg text-sm" role="alert"></div>
 
-          <form
-            id="contactForm"
-            name="contact"
-            method="POST"
-            action="/"
-            data-netlify="true"
-            netlify-honeypot="_gotcha"
-            class="space-y-6"
-            novalidate
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <!-- Spam trap: real people never see or fill this -->
-            <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
+          <form id="contactForm" class="space-y-6" novalidate>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="space-y-2">
                 <label for="fullName" class="text-sm font-medium text-gray-700">Full Name <span class="text-red-500">*</span></label>
@@ -185,6 +172,10 @@ const fieldClasses =
 
   // --- 2. Contact form validation and submission ---
 
+  // Paste your form service URL here (for example a Formspree endpoint).
+  // Until this is set, the form validates but shows a "not set up" message instead of sending.
+  const FORM_ENDPOINT = '/';
+
   type Field = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 
   const form = document.querySelector<HTMLFormElement>('#contactForm');
@@ -194,10 +185,7 @@ const fieldClasses =
   const spinner = document.querySelector<SVGElement>('#spinner');
 
   if (form && responseDiv && submitButton && buttonText && spinner) {
-    // Only the visible fields: skip the hidden form-name input and the honeypot
-    const fields = Array.from(
-      form.querySelectorAll<Field>('input:not([type="hidden"]):not([name="_gotcha"]), select, textarea')
-    );
+    const fields = Array.from(form.querySelectorAll<Field>('input, select, textarea'));
 
     const validateField = (field: Field): boolean => {
       const value = field.value.trim();
@@ -247,10 +235,18 @@ const fieldClasses =
       const allValid = fields.map((field) => validateField(field)).every(Boolean);
       if (!allValid) return;
 
+      if (!FORM_ENDPOINT) {
+        showResponse("Sending isn't set up yet. Please email info@svnl.com instead.", false);
+        return;
+      }
+
       setLoading(true);
       try {
-        // Netlify Forms: POST the FormData to the site root
-        const res = await fetch('/', { method: 'POST', body: new FormData(form) });
+        const res = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
         if (!res.ok) throw new Error(`Request failed with status ${res.status}`);
 
         showResponse('Thank you! Your message has been sent.', true);
