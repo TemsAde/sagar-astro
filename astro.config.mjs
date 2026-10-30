@@ -6,9 +6,12 @@ import keystatic from '@keystatic/astro'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
 
+import netlify from '@astrojs/netlify';
+
 export default defineConfig({
   integrations: [react(), markdoc(), keystatic()],
   output: 'static',
+
   vite: {
     plugins: [tailwindcss()],
     server: {
@@ -17,4 +20,6 @@ export default defineConfig({
       },
     },
   },
+
+  adapter: netlify(),
 })
