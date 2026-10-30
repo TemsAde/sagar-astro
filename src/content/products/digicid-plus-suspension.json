@@ -1,0 +1,11 @@
+{
+  "name": "Digicid Plus Suspension",
+  "genericName": "Antacid",
+  "category": "antacids",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/digicid-plus-suspension/image.jpg",
+  "strength": "Sodium alginate BP 200mg, Aluminium hydroxide BP 250mg, Magnesium hydroxide BP, Magnesium trisilicate BP, Simethicone USP 50mg",
+  "packaging": "200ml, 100ml",
+  "order": 100
+}

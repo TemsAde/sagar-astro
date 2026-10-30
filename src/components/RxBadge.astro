@@ -1,0 +1,9 @@
+---
+interface Props { type: 'rx' | 'otc' }
+const { type } = Astro.props;
+---
+{type === 'rx' ? (
+  <span class="text-3xl leading-none text-neutral-900" title="Prescription only" aria-label="Prescription only">℞</span>
+) : (
+  <span class="text-[11px] font-semibold text-neutral-900" title="Over the counter" aria-label="Over the counter">OTC</span>
+)}

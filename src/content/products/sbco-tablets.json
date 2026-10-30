@@ -1,0 +1,11 @@
+{
+  "name": "SBCO Tablets",
+  "genericName": "Multivitamins",
+  "category": "vitamins-supplements",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/sbco-tablets/image.jpg",
+  "strength": "Vitamin B1 1mg, Vitamin B2 1mg, Vitamin B3 15mg, Vitamin B6 1mg",
+  "packaging": "3 x 10",
+  "order": 100
+}

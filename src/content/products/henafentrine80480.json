@@ -1,0 +1,12 @@
+{
+  "name": "Henafentrine 80/480",
+  "genericName": "Arthemeter Lumefantrine",
+  "category": "antimalarials",
+  "type": "rx",
+  "available": true,
+  "image": "/images/products/henafentrine80480/image.jpg",
+  "strength": "Arthemeter80mg + Lumefantrine 480mg",
+  "packaging": "1 x 6",
+  "nafdacReg": "A11-1189",
+  "order": 100
+}

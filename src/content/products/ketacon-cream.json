@@ -1,0 +1,10 @@
+{
+  "name": "Ketacon Cream",
+  "category": "antifungals",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/ketacon-cream/image.jpg",
+  "strength": "Ketaconazole 2.0% w/w",
+  "packaging": "30gm",
+  "order": 100
+}

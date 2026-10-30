@@ -1,0 +1,10 @@
+{
+  "name": "Ytacan Plus Cream",
+  "genericName": "Clotrimazole cream",
+  "category": "antibiotics",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/ytacan-plus-cream/image.jpg",
+  "packaging": "30gm",
+  "order": 100
+}

@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ContactStrip from '../components/ContactStrip.astro';
+
+const commitments = [
+  { icon: 'shield-checkmark-outline', text: 'Quality first- strict adherence to safety standards across every batch.' },
+  { icon: 'cog-outline', text: 'Value-led operations' },
+  { icon: 'people-outline', text: 'Empowering work environment for all employees.' },
+];
+
+// Placeholder team: replace with real names, roles, and photos.
+const leaders = Array(5).fill({ name: 'Akash Kothari', role: 'Managing Director' });
+---
+
+<Layout title="About Us | Sagar Vitaceuticals">
+  <PageHeader title="The Sagar Story" />
+
+  <!-- Story Section -->
+  <section class="mt-8 px-8 md:px-16">
+    <div class="text-xl text-primary-700 font-medium text-center mb-4">
+      Over 25 Years of Trusted Pharmaceutical Excellence
+    </div>
+
+    <div class="md:grid md:grid-cols-2 pb-4 items-center">
+      <div class="justify-center">
+        <img src="/assets/ikejafactory.jpeg" class="px-8" alt="">
+      </div>
+
+      <div>
+        <p class="md:pr-8">
+          Sagar Vitaceuticals Nigeria Limited (formerly Strides Vital Nigeria Limited) is a leading name in high-quality pharmaceuticals. Building on a strong foundation that began as a strategic partnership with India’s NSE-listed Strides Arcolabs Ltd, the company transitioned to 100% management ownership in 2017.
+          For over 25 years, our trusted household brands—including Vitaclox, Vitacillin, Vitamox, Tropitone, Inbu, and Ytacan—have provided reliable healthcare solutions across Nigeria.
+        </p>
+      </div>
+    </div>
+
+    <div class="md:grid md:grid-cols-2 pb-4 items-center">
+      <div class="md:pr-8">
+        <p>
+          To meet growing regional demand, we expanded from our initial Ikeja facility to a newly commissioned, state-of-the-art manufacturing plant in Ogun State in August 2023. This modern facility powers our enhanced production capacity across:
+        </p>
+        <ul class="list-disc pl-4">
+          <li>Tablets &amp; Capsules</li>
+          <li>Liquids &amp; Ointments</li>
+          <li>Dry Powder Sachets</li>
+        </ul>
+      </div>
+
+      <div class="md:justify-self-end mt-4">
+        <video src="/assets/long_vid.mp4" autoplay muted loop class="p-4"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mt-8 px-8 md:px-16">
+    <div class="text-xl text-primary-700 font-medium text-center mb-4">
+      Driven by quality, Focused on Impact
+    </div>
+
+    <div class="my-6">
+      <p class="text-lg font-semibold">Our Mission</p>
+      <p>
+        To improve lives by identifying, developing, and commercializing meaningful products that address unmet medical needs. We aim to be the preferred supply partner to all our customers while achieving sustained growth through consistent, customer-centric, and world-class quality products.
+      </p>
+    </div>
+
+    <div>
+      <p class="text-lg font-semibold mb-2">
+        Every operational decision at Sagar Vitaceuticals is anchored in three core commitments:
+      </p>
+      <ul>
+        {commitments.map(({ icon, text }) => (
+          <li class="flex flex-row max-w-fit items-center gap-4 p-2 mb-4 border-l-2 border-primary-500 shadow-sm shadow-primary-500 rounded-r-full">
+            <span>
+              <ion-icon name={icon} class="text-primary-700 text-4xl"></ion-icon>
+            </span>
+            <span>{text}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Leadership Section -->
+  <!-- <section class="mt-8 p-8 md:py-8 bg-primary-500">
+    <div class="text-2xl text-white font-semibold text-center mb-4">
+      Our Leadership Team
+    </div>
+    <div class="flex flex-row flex-wrap gap-4 justify-center">
+      {leaders.map(({ name, role }) => (
+        <div class="bg-white border-secondary-100 p-4 rounded-lg">
+          <img src="/assets/products placeholder.png" alt="" />
+          <p class="text-center">{name}</p>
+          <p class="text-center italic">{role}</p>
+        </div>
+      ))}
+    </div>
+  </section> -->
+
+  <ContactStrip />
+</Layout>

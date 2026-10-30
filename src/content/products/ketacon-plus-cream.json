@@ -1,0 +1,10 @@
+{
+  "name": "Ketacon Plus Cream",
+  "category": "antifungals",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/ketacon-plus-cream/image.jpg",
+  "strength": "Ketaconazole BP 10mg, Clobetasol propionate BP 0.2mg, Neomycin Sulphate BP 5000 IU 15",
+  "packaging": "15gm",
+  "order": 100
+}

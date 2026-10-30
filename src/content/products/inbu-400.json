@@ -1,0 +1,11 @@
+{
+  "name": "Inbu 400",
+  "genericName": "Ibuprofen",
+  "category": "analgesics",
+  "type": "rx",
+  "available": true,
+  "image": "/images/products/inbu-400/image.jpg",
+  "strength": "Ibuprofen 400mg",
+  "packaging": "2 x 10",
+  "order": 100
+}

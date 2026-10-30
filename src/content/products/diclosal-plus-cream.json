@@ -1,0 +1,10 @@
+{
+  "name": "Diclosal Plus Cream",
+  "category": "analgesics",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/diclosal-plus-cream/image.jpg",
+  "strength": "Diclofenac Sodium 1%, Linseed oil 3%, Methyl Salcylate 10%, Menthol 5% w/w  ",
+  "packaging": "25gm",
+  "order": 100
+}

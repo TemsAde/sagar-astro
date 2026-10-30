@@ -1,0 +1,265 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+// Template content carried over from your original page.
+// Replace these questions and answers with real ones for Sagar.
+const faqs = [
+  {
+    q: 'What are your support hours?',
+    a: 'Our team is available Monday to Friday, 9:00 AM to 5:00 PM EST. We aim to respond to all inquiries within 24 business hours.',
+  },
+  {
+    q: 'How do I reset my password?',
+    a: 'Go to the login page and click "Forgot Password?". Enter the email associated with your account, and we will send you a reset link.',
+  },
+  {
+    q: 'Do you offer custom enterprise plans?',
+    a: 'Yes, we offer tailored solutions for large teams. Please select "Partnership Opportunity" in the contact form, and our sales team will reach out.',
+  },
+  {
+    q: 'Where is your company located?',
+    a: 'We are a globally distributed team, with our headquarters located in San Francisco, CA. We serve customers worldwide.',
+  },
+];
+
+const fieldClasses =
+  'w-full px-4 py-3 border border-primary-700 rounded-lg focus:ring-2 focus:ring-primary-200 focus:border-primary-500 transition duration-150';
+---
+
+<Layout title="Contact Us | Sagar Vitaceuticals">
+  <PageHeader title="Contact Us" />
+
+  <div class="bg-gray-50 text-gray-900 antialiased">
+    <main class="container mx-auto px-4 py-12 md:py-16">
+      <!-- Intro -->
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-bold text-primary-700 tracking-tight mb-4">
+          We'd Love to Hear From You
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Have a question about our services, need a quote, or need to speak with a rep? Fill out the form below or check our FAQs.
+        </p>
+      </div>
+
+      <!-- Two Column Grid: Contact Form + FAQs -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 xl:gap-16 max-w-7xl mx-auto items-start">
+        <!-- Column 1: Contact Form -->
+        <section class="lg:col-span-2 bg-primary-200 p-8 md:p-10 rounded-3xl shadow-lg border border-gray-100">
+          <h2 class="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+            <svg class="w-7 h-7 text-primary-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            Send Us a Message
+          </h2>
+
+          <!-- Success/Error Message Area -->
+          <div id="formResponse" class="hidden mb-6 p-4 rounded-lg text-sm" role="alert"></div>
+
+          <form
+            id="contactForm"
+            name="contact"
+            method="POST"
+            action="/"
+            data-netlify="true"
+            netlify-honeypot="_gotcha"
+            class="space-y-6"
+            novalidate
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <!-- Spam trap: real people never see or fill this -->
+            <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="fullName" class="text-sm font-medium text-gray-700">Full Name <span class="text-red-500">*</span></label>
+                <input type="text" id="fullName" name="fullName" required class={fieldClasses} placeholder="John Doe" />
+                <p id="fullNameError" class="text-red-600 text-xs hidden">Please enter your name.</p>
+              </div>
+              <div class="space-y-2">
+                <label for="email" class="text-sm font-medium text-gray-700">Email Address <span class="text-red-500">*</span></label>
+                <input type="email" id="email" name="email" required class={fieldClasses} placeholder="john@example.com" />
+                <p id="emailError" class="text-red-600 text-xs hidden">Please enter a valid email address.</p>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label for="subject" class="text-sm font-medium text-gray-700">Subject <span class="text-red-500">*</span></label>
+              <select id="subject" name="subject" required class={`${fieldClasses} bg-white appearance-none`}>
+                <option value="" disabled selected>Select a topic</option>
+                <option value="general">General Inquiry</option>
+                <option value="support">Technical Support</option>
+                <option value="billing">Billing Question</option>
+                <option value="partnership">Partnership Opportunity</option>
+              </select>
+              <p id="subjectError" class="text-red-600 text-xs hidden">Please select a subject.</p>
+            </div>
+
+            <div class="space-y-2">
+              <label for="message" class="text-sm font-medium text-gray-700">Message <span class="text-red-500">*</span></label>
+              <textarea id="message" name="message" rows="6" required class={`${fieldClasses} resize-y`} placeholder="Write your details here..."></textarea>
+              <p id="messageError" class="text-red-600 text-xs hidden">Please enter your message (min 10 characters).</p>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                id="submitButton"
+                class="w-full md:w-auto px-8 py-3.5 bg-primary-700 text-white font-semibold rounded-lg shadow-md hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 transition duration-200 flex items-center justify-center"
+              >
+                <span id="buttonText">Send Message</span>
+                <svg id="spinner" class="animate-spin ml-2 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Column 2: FAQs -->
+        <aside class="lg:col-span-1 mt-12 lg:mt-0 space-y-8">
+          <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+              <svg class="w-7 h-7 text-primary-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Quick Answers
+            </h2>
+
+            <div class="space-y-4" id="faqAccordion">
+              {faqs.map(({ q, a }, i) => (
+                <div class:list={['faq-item border-b border-gray-200 pb-4 last:border-b-0 last:pb-0', { active: i === 0 }]}>
+                  <button class="faq-question w-full flex justify-between items-center text-left font-semibold text-gray-800 hover:text-primary-500 transition">
+                    {q}
+                    <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                  </button>
+                  <div class="faq-answer text-gray-600 text-sm leading-relaxed px-1">
+                    {a}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Direct Contact Card -->
+          <!-- <div class="bg-primary-600 p-6 rounded-3xl text-white shadow-lg">
+            <h3 class="font-bold text-lg mb-2">Need immediate assistance?</h3>
+            <p class="text-primary-100 text-sm mb-4">Call our support line during business hours.</p>
+            <a href="tel:18005550199" class="text-2xl font-extrabold hover:text-white tracking-tight">1-800-555-0199</a>
+          </div> -->
+        </aside>
+      </div>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  /* Smooth transition for FAQ accordion */
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  }
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .faq-icon {
+    transition: transform 0.3s ease;
+  }
+  .faq-item.active .faq-icon {
+    transform: rotate(180deg);
+  }
+</style>
+
+<script>
+  // --- 1. FAQ accordion (one item open at a time) ---
+  const faqItems = document.querySelectorAll<HTMLElement>('.faq-item');
+
+  faqItems.forEach((item) => {
+    item.querySelector('.faq-question')?.addEventListener('click', () => {
+      faqItems.forEach((other) => {
+        if (other !== item) other.classList.remove('active');
+      });
+      item.classList.toggle('active');
+    });
+  });
+
+  // --- 2. Contact form validation and submission ---
+
+  type Field = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+
+  const form = document.querySelector<HTMLFormElement>('#contactForm');
+  const responseDiv = document.querySelector<HTMLElement>('#formResponse');
+  const submitButton = document.querySelector<HTMLButtonElement>('#submitButton');
+  const buttonText = document.querySelector<HTMLElement>('#buttonText');
+  const spinner = document.querySelector<SVGElement>('#spinner');
+
+  if (form && responseDiv && submitButton && buttonText && spinner) {
+    // Only the visible fields: skip the hidden form-name input and the honeypot
+    const fields = Array.from(
+      form.querySelectorAll<Field>('input:not([type="hidden"]):not([name="_gotcha"]), select, textarea')
+    );
+
+    const validateField = (field: Field): boolean => {
+      const value = field.value.trim();
+      let valid = true;
+
+      if (field.required && !value) {
+        valid = false;
+      } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        valid = false;
+      } else if (field.id === 'message' && value.length < 10) {
+        valid = false;
+      }
+
+      document.getElementById(`${field.id}Error`)?.classList.toggle('hidden', valid);
+      field.setAttribute('aria-invalid', String(!valid));
+      return valid;
+    };
+
+    const showResponse = (message: string, ok: boolean) => {
+      responseDiv.textContent = message;
+      responseDiv.className = `mb-6 p-4 rounded-lg text-sm ${
+        ok ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+      }`;
+    };
+
+    const hideResponse = () => {
+      responseDiv.textContent = '';
+      responseDiv.className = 'hidden mb-6 p-4 rounded-lg text-sm';
+    };
+
+    const setLoading = (loading: boolean) => {
+      submitButton.disabled = loading;
+      spinner.classList.toggle('hidden', !loading);
+      buttonText.textContent = loading ? 'Sending...' : 'Send Message';
+    };
+
+    // Validate each field when the user leaves it
+    fields.forEach((field) => {
+      field.addEventListener('blur', () => validateField(field));
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideResponse();
+
+      // map (not some/every) so every field gets validated and shows its own error
+      const allValid = fields.map((field) => validateField(field)).every(Boolean);
+      if (!allValid) return;
+
+      setLoading(true);
+      try {
+        // Netlify Forms: POST the FormData to the site root
+        const res = await fetch('/', { method: 'POST', body: new FormData(form) });
+        if (!res.ok) throw new Error(`Request failed with status ${res.status}`);
+
+        showResponse('Thank you! Your message has been sent.', true);
+        form.reset();
+      } catch {
+        showResponse('Something went wrong. Please try again or email info@svnl.com.', false);
+      } finally {
+        setLoading(false);
+      }
+    });
+  }
+</script>

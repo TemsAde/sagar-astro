@@ -1,0 +1,9 @@
+{
+  "name": "Vitamox 500",
+  "genericName": "Amoxicillin capsules",
+  "category": "antibiotics",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/vitamox-500/image.jpg",
+  "order": 5
+}

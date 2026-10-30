@@ -1,0 +1,12 @@
+photos:
+  - image: /images/gallery/photos/0/image.jpg
+  - image: /images/gallery/photos/1/image.jpg
+    alt: 'Meeting with... '
+  - image: /images/gallery/photos/2/image.jpg
+    alt: meeting with...
+  - image: /images/gallery/photos/3/image.jpg
+    alt: Mrs...
+  - image: /images/gallery/photos/4/image.jpeg
+    alt: Ikeja factory- the beginning
+  - image: /images/gallery/photos/5/image.jpg
+    alt: welcoming...

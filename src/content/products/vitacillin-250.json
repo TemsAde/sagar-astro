@@ -1,0 +1,11 @@
+{
+  "name": "Vitacillin 250",
+  "genericName": "Ampicillin",
+  "category": "antibiotics",
+  "type": "rx",
+  "available": true,
+  "image": "/images/products/vitacillin-250/image.jpg",
+  "strength": "Ampicillin Capsules 250mg",
+  "packaging": "10 x 10",
+  "order": 3
+}

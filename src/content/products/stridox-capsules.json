@@ -1,0 +1,13 @@
+{
+  "name": "Stridox Capsules",
+  "genericName": "Doxycyclin Gellules",
+  "category": "antibiotics",
+  "type": "rx",
+  "available": true,
+  "image": "/images/products/stridox-capsules/image.jpg",
+  "strength": "Doxycycline capsules 100mg",
+  "packaging": "2 x 10",
+  "nafdacReg": "A11-100917",
+  "description": "Placeholder: replace with real product information.",
+  "order": 1
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Sagar Calcium +",
+  "genericName": "Vitamin D3 Tablets",
+  "category": "vitamins-supplements",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/sagar-calcium/image.jpg",
+  "strength": "Calcium carbonate equivalent to Calcium 500mg + vitamin D3 1250mg",
+  "packaging": "1 x 30",
+  "order": 100
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Digicid Suspension",
+  "genericName": "Antacid",
+  "category": "antacids",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/digicid-suspension/image.jpg",
+  "strength": "Aluminium hydroxide (dried) BP 250mg, Magnesium hydroxide BP 250mg & Simethicone USP 50mg",
+  "packaging": "200ml",
+  "order": 100
+}

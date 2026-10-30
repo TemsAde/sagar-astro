@@ -1,0 +1,11 @@
+{
+  "name": "Inbu 200",
+  "genericName": "Ibuprofen",
+  "category": "analgesics",
+  "type": "rx",
+  "available": true,
+  "image": "/images/products/inbu-200-copy/image.jpg",
+  "strength": "Ibuprofen 200mg",
+  "packaging": "1 x 1000",
+  "order": 100
+}

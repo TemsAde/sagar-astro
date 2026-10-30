@@ -1,0 +1,11 @@
+{
+  "name": "Vitamox 250",
+  "genericName": "Amoxicillin",
+  "category": "antibiotics",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/vitamox-250/image.jpg",
+  "strength": "Amoxicillin Capsules 250mg",
+  "packaging": "10 x 10",
+  "order": 4
+}

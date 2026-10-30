@@ -1,0 +1,11 @@
+{
+  "name": "Ultragyl 200",
+  "genericName": "Metronidazole",
+  "category": "antibiotics",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/ultragyl-200-1/image.jpg",
+  "strength": "Metronidazole 200mg",
+  "packaging": "1x1000",
+  "order": 100
+}

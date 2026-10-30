@@ -1,0 +1,11 @@
+{
+  "name": "Atrite",
+  "genericName": "Piroxicam",
+  "category": "analgesics",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/atrite/image.jpg",
+  "strength": "Piroxicam 20mg capsules",
+  "packaging": "10 x 10",
+  "order": 100
+}

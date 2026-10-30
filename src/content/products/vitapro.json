@@ -1,0 +1,11 @@
+{
+  "name": "Vitapro",
+  "genericName": "Ciprofloxacin ",
+  "category": "antibiotics",
+  "type": "rx",
+  "available": true,
+  "image": "/images/products/vitapro/image.jpg",
+  "strength": "Ciprofloxacin USP 500mg",
+  "packaging": "1 x 10",
+  "order": 100
+}

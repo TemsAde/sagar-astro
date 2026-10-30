@@ -1,0 +1,81 @@
+---
+const quickLinks = [
+  { label: 'About', href: '/about' },
+  { label: 'Products', href: '/products' },
+  { label: 'Media', href: '/media' },
+];
+
+const supportLinks = [
+  { label: 'Careers', href: '/careers' },
+  { label: 'Contact Form', href: '/contact' },
+];
+
+const socials = [
+  { icon: 'fa-facebook', href: 'https://facebook.com/sagarnigeria', label: 'Facebook' },
+  { icon: 'fa-instagram', href: 'https://instagram.com/sagarng', label: 'Instagram' },
+  { icon: 'fa-linkedin', href: '#', label: 'LinkedIn' },
+];
+---
+
+<footer class="dark:bg-gray-900 px-16">
+  <hr class="my-2 mx-auto border-primary-200 sm:mx-auto dark:border-gray-700 lg:my-2" />
+  <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <div class="md:flex md:justify-between">
+      <div class="mb-4 md:mb-4 max-w-md">
+        <a href="/" class="flex items-center">
+          <img src="/assets/Untitled design 2.png" class="me-3" alt="SVNL" />
+        </a>
+        <p class="text-wrap py-4">
+          <span><ion-icon name="location"></ion-icon></span>
+          <span> Office Address: Plot No.2 Ladipo Oluwole Street, Off Oba Akran Avenue, Ikeja Lagos</span>
+        </p>
+        <p class="py-4">
+          <span><ion-icon name="mail"></ion-icon></span>
+          <a href="mailto:management@svnl.in">management@svnl.in</a>
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <div class="mb-4 text-sm font-semibold text-primary-700">Find us on social media:</div>
+        <div>
+          <span class="flex">
+            {socials.map(({ icon, href, label }) => (
+              <a href={href} aria-label={label}>
+                <i class={`fa-brands ${icon} text-xl p-4`}></i>
+              </a>
+            ))}
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-primary-700">Quick Links</h2>
+          <ul class="text-gray-500 dark:text-gray-400 font-medium">
+            {quickLinks.map(({ label, href }) => (
+              <li class="mb-2">
+                <a href={href} class="hover:underline">{label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-primary-700">Contact &amp; Inquiries</h2>
+          <ul class="text-gray-500 dark:text-gray-400 font-medium">
+            {supportLinks.map(({ label, href }) => (
+              <li class="mb-2">
+                <a href={href} class="hover:underline">{label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+        © {new Date().getFullYear()} <a href="/" class="hover:underline">SVNL</a>. All Rights Reserved.
+      </span>
+    </div>
+  </div>
+</footer>

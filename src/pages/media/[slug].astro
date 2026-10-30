@@ -1,0 +1,28 @@
+---
+import Markdoc from '@markdoc/markdoc';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../../keystatic.config';
+import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ContactStrip from '../../components/ContactStrip.astro';
+
+export async function getStaticPaths() {
+  const reader = createReader(process.cwd(), keystaticConfig);
+  const entries = await reader.collections.media.all();
+  return entries.map(({ slug, entry }) => ({ params: { slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { node } = await entry.content();
+const html = Markdoc.renderers.html(Markdoc.transform(node));
+---
+
+<Layout title={`${entry.title} | Sagar Vitaceuticals`}>
+  <PageHeader title="MEDIA" />
+  <article class="px-16 py-6 max-w-3xl mx-auto">
+    {entry.coverImage && <img src={entry.coverImage} alt={entry.title} class="w-full" />}
+    <h1 class="text-2xl font-semibold text-primary-700 py-4">{entry.title}</h1>
+    <div class="prose max-w-none" set:html={html} />
+  </article>
+  <ContactStrip />
+</Layout>

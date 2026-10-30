@@ -1,0 +1,10 @@
+{
+  "name": "Tropitone Tablets",
+  "category": "vitamins-supplements",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/tropitone-tablets/image.jpg",
+  "strength": "Vitamin A 200IU, Vitamin B1 1mg, Vitamin B2 1mg, Vitamin B6 1.34mg, Vitamin B12 1mcg, Vitamin D3 200IU, Selenium50mcg, Phosphorous 75mg",
+  "packaging": "3 x 10",
+  "order": 100
+}

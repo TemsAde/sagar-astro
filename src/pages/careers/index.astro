@@ -1,0 +1,114 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro'; // adjust to your layout
+import PageHeader from '../../components/PageHeader.astro';
+
+
+const [page] = await getCollection('careersPage');
+const { intro = '', values = [], employmentPolicy = '' } = page?.data ?? {};
+
+const jobs = (await getCollection('jobs'))
+  .filter((j) => j.data.status === 'open')
+  .sort((a, b) => b.data.datePosted.getTime() - a.data.datePosted.getTime());
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const policyParagraphs = employmentPolicy.split(/\n\s*\n/).filter(Boolean);
+---
+<Layout title="Careers | SAGAR Vitaceuticals">
+  <!-- Swap for your existing page-hero component if you have one -->
+  
+  <PageHeader title="Careers" />
+
+  {intro && (
+  <p class="mx-auto mt-10 max-w-2xl px-4 text-center text-2xl">{intro}</p>
+  )}
+
+  {values.length > 0 && (
+    <section class="mx-auto max-w-6xl px-4 py-12" aria-labelledby="values-heading">
+      <h2 id="values-heading" class="font-heading text-3xl">Our values</h2>
+      <div class="mt-8 grid gap-x-10 gap-y-8 md:grid-cols-3">
+        {values.map((v) => (
+          <div class="border-t-4 border-secondary-500 pt-4">
+            <h3 class="font-heading text-xl font-medium text-primary-800">{v.title}</h3>
+            <p class="mt-2 text-base">{v.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {policyParagraphs.length > 0 && (
+    <section class="bg-primary-50 py-12" aria-labelledby="policy-heading">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 id="policy-heading" class="font-heading text-3xl">Employment policy</h2>
+        <div class="mt-6 max-w-prose space-y-4 text-base">
+          {policyParagraphs.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="mx-auto max-w-4xl px-4 py-12" aria-labelledby="openings-heading">
+    <h2 id="openings-heading" class="font-heading text-3xl">Current openings</h2>
+
+    {jobs.length === 0 ? (
+      <p class="mt-8 text-lg">
+        There are no open roles right now. You can still
+        <a href="/careers/apply" class="font-semibold text-primary-800 underline">send us your details</a>
+        and we'll keep them on file.
+      </p>
+    ) : (
+      <div class="mt-8 space-y-4">
+        {jobs.map((job) => (
+          <details class="group rounded-2xl border border-secondary-300 bg-white open:shadow-md">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 rounded-2xl p-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 [&::-webkit-details-marker]:hidden">
+              <span>
+                <span class="block font-heading text-xl font-medium text-primary-800">{job.data.title}</span>
+                <span class="mt-1 block text-sm text-neutral-700">
+                  {job.data.employmentType}{job.data.location && `, ${job.data.location}`}
+                </span>
+              </span>
+              <svg class="h-6 w-6 shrink-0 text-primary-800 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+            </summary>
+
+            <div class="border-t border-secondary-300 p-5">
+              <dl class="grid gap-4 sm:grid-cols-2">
+                <div><dt class="text-sm text-neutral-700">Employment type</dt><dd class="font-semibold">{job.data.employmentType}</dd></div>
+                <div><dt class="text-sm text-neutral-700">Date posted</dt><dd class="font-semibold">{fmt(job.data.datePosted)}</dd></div>
+                {job.data.minimumQualification && (
+                  <div class="sm:col-span-2"><dt class="text-sm text-neutral-700">Minimum qualification</dt><dd class="font-semibold">{job.data.minimumQualification}</dd></div>
+                )}
+              </dl>
+
+              {job.data.responsibilities.length > 0 && (
+                <>
+                  <h3 class="mt-6 font-heading text-lg font-medium">Responsibilities</h3>
+                  <ul class="mt-2 list-disc space-y-1 pl-6">
+                    {job.data.responsibilities.map((r) => <li>{r}</li>)}
+                  </ul>
+                </>
+              )}
+
+              {job.data.requirements.length > 0 && (
+                <>
+                  <h3 class="mt-6 font-heading text-lg font-medium">Key requirements</h3>
+                  <ul class="mt-2 list-disc space-y-1 pl-6">
+                    {job.data.requirements.map((r) => <li>{r}</li>)}
+                  </ul>
+                </>
+              )}
+
+              <a
+                href={`/careers/apply?role=${job.id}`}
+                class="mt-8 inline-block rounded bg-primary-800 px-4 py-2.5 font-semibold text-white hover:bg-primary-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-800"
+              >
+                Apply Now
+              </a>
+            </div>
+          </details>
+        ))}
+      </div>
+    )}
+  </section>
+</Layout>

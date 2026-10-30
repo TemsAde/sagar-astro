@@ -1,0 +1,11 @@
+{
+  "name": "Stricoff Expectorant (Children)",
+  "category": "respiratory-support",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/stricoff-expectorant-children/image.jpg",
+  "strength": "Ammonium Chloride BP 45mg, Sodium Citrate BP 22mg, Chlopheniramine Maleate BP 1mg, Menthol Crystal BP 2mg ",
+  "packaging": "100ml",
+  "description": "For children ",
+  "order": 100
+}

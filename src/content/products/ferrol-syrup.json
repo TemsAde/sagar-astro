@@ -1,0 +1,10 @@
+{
+  "name": "Ferrol Syrup",
+  "category": "vitamins-supplements",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/ferrol-syrup/image.jpg",
+  "strength": "Ferric Ammonium Citrate, Folic Acid & Vitamin B12",
+  "packaging": "200ml",
+  "order": 100
+}

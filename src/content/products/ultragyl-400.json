@@ -1,0 +1,11 @@
+{
+  "name": "Ultragyl 400",
+  "genericName": "Metronidazole",
+  "category": "antibiotics",
+  "type": "rx",
+  "available": true,
+  "image": "/images/products/ultragyl-400/image.jpg",
+  "strength": "Metronidazole BP 400mg",
+  "packaging": "10 x 10",
+  "order": 100
+}

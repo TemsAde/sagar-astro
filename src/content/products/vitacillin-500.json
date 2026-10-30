@@ -1,0 +1,10 @@
+{
+  "name": "Vitacillin 500",
+  "genericName": "Ampicillin Capsules",
+  "category": "antibiotics",
+  "type": "otc",
+  "available": true,
+  "strength": "Ampicillin Capsules 500mg",
+  "packaging": "10 x 10",
+  "order": 3
+}

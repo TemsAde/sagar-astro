@@ -1,0 +1,11 @@
+{
+  "name": "Amplify 625",
+  "genericName": "Amoxicillin, Clavulanic acid",
+  "category": "antibiotics",
+  "type": "rx",
+  "available": true,
+  "image": "/images/products/amplify-625/image.jpg",
+  "strength": "Amoxicillin 500mg Clavulanic acid 125mg",
+  "packaging": "2 x 7",
+  "order": 100
+}

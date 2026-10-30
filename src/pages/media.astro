@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ContactStrip from '../components/ContactStrip.astro';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../keystatic.config';
+
+const reader = createReader(process.cwd(), keystaticConfig);
+
+const all = (await reader.collections.media.all())
+  .map(({ slug, entry }) => ({ slug, ...entry }))
+  .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''));
+
+const news = all.filter((m) => m.type === 'news');
+const posts = all.filter((m) => m.type === 'blog');
+const gallery = (await reader.singletons.gallery.read())?.photos ?? [];
+
+const placeholder = '/assets/news-ph.png';
+---
+
+<Layout title="Media | Sagar Vitaceuticals">
+  <PageHeader title="MEDIA" />
+
+  <section class="px-16 py-6">
+    <div>
+      Stay updated with the latest corporate news, event highlights, and expert healthcare insights from Sagar Vitaceuticals.
+    </div>
+
+    <!-- News hub -->
+    {news.length > 0 && (
+      <div class="py-6">
+        <div class="text-xl text-primary-700 text-center font-semibold">
+          Latest News &amp; Press Releases
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 py-6">
+          {news.map(({ slug, title, summary, coverImage }) => (
+            <div>
+              <img src={coverImage ?? placeholder} alt={title} />
+              <p class="font-semibold p-2">{title}</p>
+              <p class="text-sm text-gray-600 px-2">{summary}</p>
+              <a href={`/media/${slug}`} class="flex items-center gap-2 text-primary-600 px-2 py-2">
+                <span class="text-sm underline">Read More</span>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Gallery -->
+    {gallery.length > 0 && (
+      <div>
+        <div class="text-xl text-primary-700 text-center font-semibold">
+          Photo Gallery
+        </div>
+        <p class="text-center text-gray-600 py-2">
+          Life at Sagar Vitaceuticals: A visual look into our manufacturing facilities, corporate culture, and community initiatives.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-4 py-6">
+          {gallery.map(({ image, alt }) => (
+            <div>
+              <img src={image ?? placeholder} alt={alt} />
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </section>
+
+  {posts.length > 0 && (
+    <section class="bg-primary-600 px-16 py-6">
+      <!-- Blogposts -->
+      <p class="text-xl text-white text-center font-semibold pb-6">
+        The Sagar Blog
+      </p>
+
+      <div class="flex flex-col md:flex-row gap-4">
+        {posts.map(({ slug, title, summary, coverImage }) => (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-white rounded">
+            <img src={coverImage ?? placeholder} alt={title} />
+            <div>
+              <p>{title}</p>
+              <p class="py-4 text-xs">{summary}</p>
+              <a href={`/media/${slug}`} class="flex items-center gap-2 text-primary-600 py-2">
+                <span class="text-sm underline">Read Full Article</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <ContactStrip />
+</Layout>

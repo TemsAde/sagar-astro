@@ -1,0 +1,11 @@
+{
+  "name": "Henapraz Capsules",
+  "genericName": "Omeprazole",
+  "category": "antacids",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/henapraz-capsules/image.jpg",
+  "strength": "Omeprazole 20mg",
+  "packaging": "2 x 7",
+  "order": 100
+}

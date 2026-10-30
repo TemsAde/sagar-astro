@@ -1,0 +1,12 @@
+{
+  "name": "Vitaclox 500",
+  "genericName": "Ampicillin + Cloxacillin",
+  "category": "antibiotics",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/vitaclox-500/image.jpg",
+  "strength": "Ampicillin 250mg + Cloxacillin 250mg",
+  "packaging": "2 x 10",
+  "description": "Placeholder: replace with real product information.",
+  "order": 2
+}

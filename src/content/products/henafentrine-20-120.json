@@ -1,0 +1,12 @@
+{
+  "name": "Henafentrine 20/120",
+  "genericName": "Arthemeter Lumefantrine",
+  "category": "antimalarials",
+  "type": "rx",
+  "available": true,
+  "image": "/images/products/henafentrine-20-120/image.jpg",
+  "strength": "Arthemeter20mg + Lumefantrine 120mg",
+  "packaging": "1 x 24",
+  "nafdacReg": "A11-1189",
+  "order": 100
+}

@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+
+// Placeholder data. The stats stay hand-written; products and media
+// will be replaced by Keystatic collections later.
+const stats = [
+  { icon: 'time-outline', top: '25 years', bottom: 'of healthcare excellence', small: false },
+  { icon: 'people-outline', top: 'XXX', bottom: 'highly trained employees', small: false },
+  { icon: 'navigate-outline', top: '36 states', bottom: 'Nationwide distribution coverage', small: true },
+  { icon: 'folder-outline', top: 'XXX', bottom: 'products in our diverse portfolio', small: true },
+];
+
+const categories = [
+  { name: "Analgesics", image: "/assets/1.png" },
+  { name: "Antimalarials", image: "/assets/3.png" },
+  { name: "Antibiotics", image: "/assets/4.png" },
+  { name: "Antacid/Ulcer care", image: "/assets/5.png" },
+  { name: "Vitamins/Supplements", image: "/assets/2.png" },
+
+];
+---
+
+<Layout title="Sagar Vitaceuticals | Better health starts with real solutions">
+  <!-- HERO SECTION -->
+  <section class="hero bg-primary-100" style="background-image: url('/assets/hero.png'); width: 100%;">
+    <Header />
+
+    <!-- hero tab -->
+    <div class="h-[36rem] md:h-[32rem] flex flex-wrap justify-start bg-no-repeat w-full bg-cover">
+      <div class="p-12 justify-between">
+        <div class="text-2xl md:text-5xl text-white font-bold py-6 animate-fade-in-up text-shadow-lg text-shadow-primary-700">
+          Better health starts with <span class="text-secondary-700">real solutions.</span> 
+        </div>
+        <div class="text-2xl md:text-2xl text-white font-semibold pb-6 text-shadow-lg text-shadow-primary-700 animate-fade-in-up [animation-delay:500ms]">
+          We create treatments for the needs that matter most.
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-4 md:gap-10 py-4 w-3/4 animate-fade-in-up [animation-delay:1000ms]">
+          <a
+            class="bg-primary-500 hover:bg-primary-700 px-2 md:px-8 py-4 text-white text-lg text-center"
+            href="/about"
+          >
+            Learn Our Story
+          </a>
+          <a
+            class="bg-primary-500 hover:bg-primary-700 px-2 md:px-8 py-4 text-white text-lg text-center"
+            href="/products"
+          >
+            Our therapeutic areas
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About tab -->
+  <section class="md:grid md:grid-cols-2 md:gap-8 p-16 bg-white">
+    <div class="md:p-6 pb-6">
+      <!-- <img src="/assets/Frame 7.png" alt="placeholder" /> -->
+       <video src="/assets/short_vid.mp4" autoplay muted loop></video>
+    </div>
+
+    <div class="my-auto flex flex-col md:gap-6 gap-4">
+      <p class="text-2xl text-primary-700">Sagar Vitaceuticals</p>
+      <p class="text-lg text-primary-900">
+        We are a Nigeria-based pharmaceutical company dedicated to manufacturing and distributing safe, high-grade therapeutic solutions. Operating under full NAFDAC and PCN compliance, our temperature-controlled distribution network supports hospitals, clinics, and pharmacies across all 36 states.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <!-- Features tab -->
+    <div class="md:grid md:grid-cols-4 md:gap-8 gap-6 px-16">
+      {stats.map(({ icon, top, bottom, small }) => (
+        <div class="flex gap-4 py-4 px-2 shadow-md shadow-primary-200 justify-center rounded-md">
+          <div class="text-primary-500 text-4xl my-auto">
+            <ion-icon name={icon}></ion-icon>
+          </div>
+          <div>
+            <p>{top}</p>
+            <p class={small ? 'text-sm' : ''}>{bottom}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Products tab -->
+    <div class="p-16">
+      <div class="text-primary-500 text-3xl font-bold pb-4 text-center">OUR PRODUCTS</div>
+
+      <div class="md:flex md:flex-row md:gap-8 gap-6">
+        {categories.map(({ name, image }) => (
+         <div class="border-2 border-secondary-100 p-2 rounded-lg">
+         <img src={image} class="w-full" alt={name} />
+         {/* <p class="text-center">{name}</p> */}
+         </div>
+        ))}
+      </div>
+
+      <div class="flex justify-end pt-4">
+        <a
+          href="/products"
+          class="bg-primary-500 hover:bg-primary-700 text-white px-4 py-2 border-2 border-primary-200 hover:border-primary-700"
+        >
+          More Categories
+          <span class="text-white text-lg">
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- MEDIA tab -->
+    <!-- <div class="px-16 bg-primary-500 py-4">
+      <div class="text-white text-3xl font-bold pb-4 text-center">MEDIA</div>
+      <div class="md:grid md:grid-cols-2 md:gap-4 gap-4 justify-center">
+        <div>
+          <img src="/assets/media placeholder.png" alt="placeholder" />
+        </div>
+        <div class="my-auto">
+          <p class="text-white text-xl font-bold">Very Attractive Update</p>
+          <p class="text-white text-sm py-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+          </p>
+          <div>
+            <a
+              href="/contact"
+              class="inline-block bg-primary-500 hover:bg-primary-700 px-2 md:px-8 py-4 border-2 border-white text-white text-lg"
+            >
+              Learn Our Story
+            </a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Contact tab -->
+    <div class="py-6 px-16 m-auto rounded-lg md:grid md:grid-cols-2 md:gap-8 gap-6">
+      <div>
+        <div class="text-2xl text-primary-600 font-medium pt-3">
+          Questions or Inquiries? Get in touch with us
+        </div>
+        <div class="text-green-950 pt-4">
+          <div class="font-semibold">
+            <span><ion-icon name="mail-outline" class="text-xl pr-2"></ion-icon></span>
+            <span class="p-2">Partnerships:</span>
+            <span><a href="mailto:management@svnl.in">management@svnl.in</a></span>
+          </div>
+
+          <div class="font-semibold">
+            <span><ion-icon name="mail-outline" class="text-xl pr-2"></ion-icon></span>
+            <span class="p-2">Distribution:</span>
+            <span><a href="mailto:sales@svnl.in">sales@svnl.in</a></span>
+          </div>
+
+          <div class="font-semibold">
+            <span><ion-icon name="mail-outline" class="text-xl pr-2"></ion-icon></span>
+            <span class="p-2">Career opportunities:</span>
+            <span><a href="mailto:recruitment@svnl.in">recruitment@svnl.in</a></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- subscription box -->
+      <div class="mx-auto">
+        <div class="items-center rounded-lg bg-primary-600 p-4 sm:p-8 lg:flex-row lg:justify-between">
+          <div class="mb-4 sm:mb-8 lg:mb-0">
+            <h2 class="text-center text-xl font-bold text-white sm:text-2xl lg:text-left lg:text-3xl">Stay Updated</h2>
+            <p class="text-center text-white lg:text-left">Subscribe to our newsletter</p>
+          </div>
+          <div class="flex flex-col items-center w-96 lg:items-end">
+            <form class="flex w-full gap-2">
+              <input
+                type="email"
+                name="email"
+                required
+                aria-label="Email address"
+                placeholder="Enter your email address"
+                class="bg-white w-full flex-1 rounded px-3 py-2 text-gray-txt placeholder-gray-dark focus:outline-none"
+              />
+              <button class="inline-block rounded bg-white px-8 py-2 text-center text-sm font-semibold text-primary md:text-base hover:text-secondary">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

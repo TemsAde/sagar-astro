@@ -1,0 +1,56 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro'; // adjust to your layout
+import { getCategory } from '../../data/categories';
+import PageHeader from '../../components/PageHeader.astro';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  return products.map((product) => ({ params: { slug: product.id }, props: { product } }));
+}
+
+interface Props { product: CollectionEntry<'products'> }
+const { product } = Astro.props;
+const { name, type, available, image, strength, description, nafdacReg, category } = product.data;
+const cat = getCategory(category);
+const chip = 'rounded-full px-5 py-2 text-lg';
+---
+<Layout title={`${name} | SAGAR Vitaceuticals`}>
+ <PageHeader title='Product Details'/>
+
+  <section class="mx-auto max-w-6xl px-4 py-8">
+    <a href={`/products/#${category}`} class="font-heading text-3xl hover:underline">{cat?.label ?? 'All products'}</a>
+    <p class="mt-6 text-3xl">{name}</p>
+
+    <div class="mt-12 grid gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="rounded-lg bg-white p-4 shadow-md">
+        <div class="aspect-[654/467] overflow-hidden bg-neutral-200">
+          {image && <img src={image} alt={`${name} pack`} class="h-full w-full object-cover" />}
+        </div>
+      </div>
+
+      <div class="rounded-lg bg-white p-8 shadow-md">
+        <h2 class="font-heading text-3xl">{name}</h2>
+
+        <div class="mt-6 flex flex-wrap gap-4">
+          <span class={`${chip} bg-primary-100`}>{cat?.short}</span>
+          <span class={`${chip} bg-primary-100`}>{type === 'rx' ? 'Prescription' : 'OTC'}</span>
+          <span class={`${chip} ${available ? 'bg-primary-100' : 'bg-neutral-200'}`}>
+            {available ? 'Available' : 'Not Available'}
+          </span>
+        </div>
+
+        {strength && <p class="mt-8 text-xl">{strength}</p>}
+        {description && <p class="mt-6 max-w-prose text-lg whitespace-pre-line">{description}</p>}
+        {nafdacReg && <p class="mt-6 text-lg">NAFDAC REG NO: {nafdacReg}</p>}
+
+        <a
+          href={`/contact?product=${encodeURIComponent(name)}`}
+          class="mt-6 inline-block rounded bg-primary-800 px-3 py-2.5 font-semibold text-white hover:bg-primary-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-800"
+        >
+          Request Information
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

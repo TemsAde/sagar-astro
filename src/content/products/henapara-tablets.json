@@ -1,0 +1,11 @@
+{
+  "name": "Henapara Tablets",
+  "genericName": "Paracetamol",
+  "category": "analgesics",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/henapara-tablets/image.jpg",
+  "strength": "Paracetamol 500mg Tablets",
+  "packaging": "8 x 12",
+  "order": 100
+}

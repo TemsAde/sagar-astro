@@ -1,0 +1,10 @@
+{
+  "name": "Sulfacan Cream",
+  "genericName": "Precipitated Sulfur",
+  "category": "antibiotics",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/sulfacan-cream/image.jpg",
+  "strength": "Precipitated Sulfur 10% w/w 30gm",
+  "order": 100
+}

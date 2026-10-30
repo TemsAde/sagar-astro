@@ -1,0 +1,11 @@
+{
+  "name": "Limcee",
+  "genericName": "Ascorbic acid tablets",
+  "category": "vitamins-supplements",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/limcee/image.jpg",
+  "strength": "Ascorbic acid tablets BP 100mg (chewable)",
+  "packaging": "1 x 1000",
+  "order": 100
+}

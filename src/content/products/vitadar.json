@@ -1,0 +1,11 @@
+{
+  "name": "Vitadar",
+  "genericName": "Supphadoxine Pyrimethamine",
+  "category": "antimalarials",
+  "type": "rx",
+  "available": true,
+  "image": "/images/products/vitadar/image.jpg",
+  "strength": "Sulphadoxine 500mg Pyrimethamine 25mg Tablets",
+  "packaging": "1 x 3",
+  "order": 100
+}

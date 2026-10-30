@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro'; // adjust to your layout
+import ProductCard from '../../components/ProductCard.astro';
+import { categories } from '../../data/categories';
+import PageHeader from '../../components/PageHeader.astro';
+
+
+const products = (await getCollection('products')).sort(
+  (a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name),
+);
+const byCategory = (slug: string) => products.filter((p) => p.data.category === slug);
+// Open on the first category that actually has products
+const defaultSlug = categories.find((c) => byCategory(c.slug).length)?.slug ?? categories[0].slug;
+---
+<Layout title="Products | SAGAR Vitaceuticals">
+  <!-- Swap for your existing page-hero component if you have one -->
+  <PageHeader title="Products" />
+
+  <section class="px-4 py-8 md:px-8">
+    <h2 class="font-heading text-3xl">Product Categories (Select Category)</h2>
+    <div class="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-4" role="group" aria-label="Product categories">
+      {categories.map((c) => (
+        <button
+          type="button"
+          data-cat-btn={c.slug}
+          aria-pressed={c.slug === defaultSlug}
+          class="rounded-lg border border-primary-500 px-4 py-3 text-sm font-semibold transition-colors aria-pressed:border-secondary-500 aria-pressed:bg-secondary-50 hover:bg-primary-50"
+        >
+          {c.label}
+        </button>
+      ))}
+    </div>
+  </section>
+
+  <hr class="border-secondary-400" />
+
+  <section class="mx-auto max-w-6xl px-4 py-12">
+    {categories.map((c) => {
+      const items = byCategory(c.slug);
+      return (
+        <div data-cat-panel={c.slug} hidden={c.slug !== defaultSlug}>
+          <h2 class="mb-6 font-heading text-xl font-medium">{c.label}</h2>
+          {items.length ? (
+            <div class="flex flex-wrap justify-center gap-8">
+              {items.map((p) => <ProductCard product={p} />)}
+            </div>
+          ) : (
+            <p class="py-16 text-center text-tertiary-700">
+              No products listed in this category yet. Check back soon or contact us for enquiries.
+            </p>
+          )}
+        </div>
+      );
+    })}
+  </section>
+</Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-cat-btn]');
+  const panels = document.querySelectorAll<HTMLElement>('[data-cat-panel]');
+
+  function show(slug: string, updateHash = true) {
+    if (![...panels].some((p) => p.dataset.catPanel === slug)) return;
+    panels.forEach((p) => (p.hidden = p.dataset.catPanel !== slug));
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.catBtn === slug)));
+    if (updateHash) history.replaceState(null, '', `#${slug}`);
+  }
+
+  buttons.forEach((b) => b.addEventListener('click', () => show(b.dataset.catBtn!)));
+  if (location.hash) show(location.hash.slice(1), false);
+</script>

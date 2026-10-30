@@ -1,0 +1,74 @@
+---
+const links = [
+  { label: 'HOME', href: '/' },
+  { label: 'ABOUT US', href: '/about' },
+  { label: 'PRODUCTS', href: '/products' },
+  { label: 'MEDIA', href: '/media' },
+  { label: 'CAREERS', href: '/careers' },
+  { label: 'CONTACT US', href: '/contact' },
+];
+---
+
+<div>
+  <!-- banner -->
+  <div id="banner" class="md:fixed w-full top-0 inset-s-0 flex justify-center gap-10 bg-secondary-600 text-white px-1 py-3">
+    <a class="px-5 text-md flex space-x-2" href="mailto:info@svnl.com">
+      <span>
+        <ion-icon name="mail"></ion-icon>
+      </span>
+      <span>management@svnl.in</span>
+    </a>
+
+    <a class="px-5 text-md flex space-x-2" href="tel:+23480XXXXXXXX">
+      <span>
+        <ion-icon name="location"></ion-icon>
+      </span>
+      <span>Plot No.2 Ladipo Oluwole Street, Off Oba Akran Avenue, Ikeja Lagos</span>
+    </a>
+  </div>
+
+  <!-- navbar -->
+  <nav id="navbar" class="flex justify-between rounded-full items-center md:mt-12 p-4 bg-white/70 transition-all duration-300  z-50 mx-auto w-7/8">
+    <div>
+      <a href="/" class="w-16 md:w-32">
+        <img class="w-35" src="/assets/Untitled design 2.png" alt="Sagar Vitaceuticals logo" />
+      </a>
+    </div>
+
+    <div class="nav-links bg-white md:bg-white/0 md:static absolute md:min-h-fit min-h-[60vw] left-0 top-[-100%] md:w-auto w-full flex items-center px-1 py-1">
+      <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-12 px-4 md:px-0">
+        {links.map(({ label, href }) => (
+          <li>
+            <a class="hover:text-primary-900 text-primary-500" href={href}>{label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="md:hidden">
+      <ion-icon
+        id="menu-toggle"
+        role="button"
+        aria-label="Toggle menu"
+        name="menu-outline"
+        class="text-3xl text-primary-500 cursor-pointer md:hidden"
+      ></ion-icon>
+    </div>
+  </nav>
+</div>
+
+<script>
+  const toggle = document.querySelector('#menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  toggle?.addEventListener('click', () => {
+    if (!navLinks) return;
+
+    // Show or hide the menu (top-14 = visible, top-[-100%] = hidden)
+    const open = navLinks.classList.toggle('top-14');
+    navLinks.classList.toggle('top-[-100%]', !open);
+
+    // Swap the icon between hamburger and close
+    toggle.setAttribute('name', open ? 'close' : 'menu-outline');
+  });
+</script>

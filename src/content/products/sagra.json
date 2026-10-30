@@ -1,0 +1,11 @@
+{
+  "name": "Sagra",
+  "genericName": "Sildenafil citrate",
+  "category": "lifestyle",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/sagra/image.jpg",
+  "strength": "Sildenafil citrate 100mg",
+  "packaging": "1 x 5",
+  "order": 100
+}

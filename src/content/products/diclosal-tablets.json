@@ -1,0 +1,10 @@
+{
+  "name": "Diclosal tablets",
+  "category": "analgesics",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/diclosal-tablets/image.jpg",
+  "strength": "Diclofenac Sodium BP 50mg",
+  "packaging": "10 x 10",
+  "order": 100
+}

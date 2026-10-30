@@ -1,0 +1,11 @@
+{
+  "name": "Stricoff Expectorant (Adults)",
+  "category": "respiratory-support",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/stricoff-expectorant-adults/image.jpg",
+  "strength": "Ammonium Chloride BP 140mg, Sodium Citrate BP 60mg, Diphenhydramine HCl BP 20mg, Menthol Crystal BP 1.1mg ",
+  "packaging": "100ml",
+  "description": "For children ",
+  "order": 100
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Limcee Syrup",
+  "genericName": "Ascorbic acid BP 100mg",
+  "category": "vitamins-supplements",
+  "type": "otc",
+  "available": true,
+  "image": "/images/products/limcee-syrup/image.jpg",
+  "strength": "Ascorbic acid BP 100mg (chewable)",
+  "packaging": "100ml",
+  "order": 100
+}
