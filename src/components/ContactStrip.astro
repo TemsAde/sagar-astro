@@ -1,52 +1,58 @@
 <!-- Contact tab -->
-<div class="py-6 px-8 md:px-16 m-auto rounded-lg md:grid md:grid-cols-2 md:gap-8 gap-6">
-       <div>
-        <div class="text-2xl text-primary-600 font-medium pt-3">
+    <div class="py-4 justify-center bg-primary-200 flex flex-col md:flex-row gap-6">
+      <div class="mx-4">
+        <div class="text-xl font-semibold text-primary-600">
           Questions or Inquiries? Get in touch with us
         </div>
         <div class="text-green-950 pt-4">
-          <div class="font-semibold">
-            <span><ion-icon name="mail-outline" class="text-xl pr-2"></ion-icon></span>
-            <span class="p-2">Partnerships:</span>
-            <span><a href="mailto:management@svnl.in">management@svnl.in</a></span>
+          <div class="font-semibold flex flex-row">
+            <div><ion-icon name="mail-outline" class="text-xl"></ion-icon></div>
+            <div>
+             <span class="p-2">Partnerships:</span>
+             <span><a href="mailto:management@svnl.in">management@svnl.in</a></span>
+            </div>
           </div>
 
-          <div class="font-semibold">
-            <span><ion-icon name="mail-outline" class="text-xl pr-2"></ion-icon></span>
+          <div class="font-semibold flex flex-row">
+            <div><ion-icon name="mail-outline" class="text-xl"></ion-icon></div>
+            <div>
             <span class="p-2">Distribution:</span>
             <span><a href="mailto:sales@svnl.in">sales@svnl.in</a></span>
+            </div>
           </div>
 
-          <div class="font-semibold">
-            <span><ion-icon name="mail-outline" class="text-xl pr-2"></ion-icon></span>
-            <span class="p-2">Career opportunities:</span>
-            <span><a href="mailto:recruitment@svnl.in">recruitment@svnl.in</a></span>
+          <div class="font-semibold flex flex-row">
+            <div><ion-icon name="mail-outline" class="text-xl"></ion-icon></div>
+            <div>
+             <span class="p-2">Career opportunities:</span>
+             <span><a href="mailto:recruitment@svnl.in">recruitment@svnl.in</a></span>
+            </div>
           </div>
         </div>
       </div>
 
-  <!-- subscription box -->
-  <div class="mx-auto">
-    <div class="items-center rounded-lg bg-primary-600 p-4 sm:p-8 lg:flex-row lg:justify-between">
-      <div class="mb-4 sm:mb-8 lg:mb-0">
-        <h2 class="text-center text-xl font-bold text-white sm:text-2xl lg:text-left lg:text-3xl">Stay Updated</h2>
-        <p class="text-center text-white lg:text-left">Subscribe to our newsletter</p>
-      </div>
-      <div class="flex flex-col items-center w-96 lg:items-end">
-        <form class="flex w-full gap-2">
-          <input
-            type="email"
-            name="email"
-            required
-            aria-label="Email address"
-            placeholder="Enter your email address"
-            class="bg-white w-full flex-1 rounded px-3 py-2 text-gray-txt placeholder-gray-dark focus:outline-none"
-          />
-          <button class="inline-block rounded bg-white px-8 py-2 text-center text-sm font-semibold text-primary md:text-base hover:text-secondary">
-            Subscribe
-          </button>
-        </form>
+      <!-- subscription box -->
+      <div class="mx-4">
+        <div class="items-center rounded-lg bg-primary-600 p-4 sm:p-8 lg:flex-row lg:justify-between">
+          <div class="mb-4 sm:mb-8 lg:mb-0">
+            <h2 class="text-center text-xl font-bold text-white sm:text-2xl lg:text-left lg:text-3xl">Stay Updated</h2>
+            <p class="text-center text-white lg:text-left">Subscribe to our newsletter</p>
+          </div>
+          <div class="flex flex-col lg:items-end items-center">
+            <form class="flex flex-col sm:flex-row w-full gap-2">
+              <input
+                type="email"
+                name="email"
+                required
+                aria-label="Email address"
+                placeholder="Enter your email address"
+                class="bg-white w-full flex-1 rounded px-3 py-2 text-gray-txt placeholder-gray-dark focus:outline-none"
+              />
+              <button class="inline-block rounded bg-primary-200 px-8 py-2 text-center text-sm font-semibold text-primary md:text-base hover:text-white hover:bg-primary-700">
+                SUBSCRIBE
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
