@@ -6,9 +6,9 @@ import Header from '../components/Header.astro';
 // will be replaced by Keystatic collections later.
 const stats = [
   { icon: 'time-outline', top: '25 years', bottom: 'of healthcare excellence', small: false },
-  { icon: 'people-outline', top: 'XXX', bottom: 'highly trained employees', small: false },
+  { icon: 'people-outline', top: '150+', bottom: 'highly trained employees', small: false },
   { icon: 'navigate-outline', top: '36 states', bottom: 'Nationwide distribution coverage', small: true },
-  { icon: 'folder-outline', top: 'XXX', bottom: 'products in our diverse portfolio', small: true },
+  { icon: 'folder-outline', top: '60+', bottom: 'products in our diverse portfolio', small: true },
 ];
 
 const categories = [
@@ -27,7 +27,7 @@ const categories = [
     <Header />
 
     <!-- hero tab -->
-    <div class="h-[36rem] md:h-[32rem] flex flex-wrap justify-start bg-no-repeat w-full bg-cover">
+    <div class="h-144 md:h-128 flex flex-wrap justify-start bg-no-repeat w-full bg-cover">
       <div class="p-12 justify-between">
         <div class="text-2xl md:text-5xl text-white font-bold py-6 animate-fade-in-up text-shadow-lg text-shadow-primary-700">
           Better health starts with <span class="text-secondary-700">real solutions.</span> 
@@ -55,7 +55,7 @@ const categories = [
   </section>
 
   <!-- About tab -->
-  <section class="md:grid md:grid-cols-2 md:gap-8 p-16 bg-white">
+  <section class="md:grid md:grid-cols-2 md:gap-8 p-8 md:p-16 bg-white">
     <div class="md:p-6 pb-6">
       <!-- <img src="/assets/Frame 7.png" alt="placeholder" /> -->
        <video src="/assets/short_vid.mp4" autoplay muted loop playsinline pre-load="auto"></video>
@@ -71,7 +71,7 @@ const categories = [
 
   <section>
     <!-- Features tab -->
-    <div class="md:grid md:grid-cols-4 md:gap-8 gap-6 px-16">
+    <div class="md:grid md:grid-cols-4 md:gap-8 gap-6 px-8 md:px-16">
       {stats.map(({ icon, top, bottom, small }) => (
         <div class="flex gap-4 py-4 px-2 shadow-md shadow-primary-200 justify-center rounded-md">
           <div class="text-primary-500 text-4xl my-auto">
@@ -86,7 +86,7 @@ const categories = [
     </div>
 
     <!-- Products tab -->
-    <div class="p-16">
+    <div class="md:p-16 p-8">
       <div class="text-primary-500 text-3xl font-bold pb-4 text-center">OUR PRODUCTS</div>
 
       <div class="md:flex md:flex-row md:gap-8 gap-6">
@@ -139,8 +139,8 @@ const categories = [
     </div> -->
 
     <!-- Contact tab -->
-    <div class="py-4 justify-center bg-primary-200 flex flex-col md:flex-row gap-6">
-      <div class="mx-4">
+    <div class="py-8 md:px-16 px-8 justify-between bg-primary-200 flex flex-col md:flex-row gap-6">
+      <div class="">
         <div class="text-xl font-semibold text-primary-600">
           Questions or Inquiries? Get in touch with us
         </div>
@@ -172,7 +172,7 @@ const categories = [
       </div>
 
       <!-- subscription box -->
-      <div class="mx-4">
+      <div class="">
         <div class="items-center rounded-lg bg-primary-600 p-4 sm:p-8 lg:flex-row lg:justify-between">
           <div class="mb-4 sm:mb-8 lg:mb-0">
             <h2 class="text-center text-xl font-bold text-white sm:text-2xl lg:text-left lg:text-3xl">Stay Updated</h2>

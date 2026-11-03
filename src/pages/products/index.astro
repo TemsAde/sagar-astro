@@ -17,7 +17,7 @@ const defaultSlug = categories.find((c) => byCategory(c.slug).length)?.slug ?? c
   <!-- Swap for your existing page-hero component if you have one -->
   <PageHeader title="Products" />
 
-  <section class="px-4 py-8 md:px-8">
+  <section class=" py-8 md:px-16 px-8">
     <h2 class="font-heading text-3xl">Product Categories (Select Category)</h2>
     <div class="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-4" role="group" aria-label="Product categories">
       {categories.map((c) => (
@@ -35,7 +35,7 @@ const defaultSlug = categories.find((c) => byCategory(c.slug).length)?.slug ?? c
 
   <hr class="border-secondary-400" />
 
-  <section class="mx-auto max-w-6xl px-4 py-12">
+  <section class="mx-auto max-w-6xl px-8 py-12">
     {categories.map((c) => {
       const items = byCategory(c.slug);
       return (

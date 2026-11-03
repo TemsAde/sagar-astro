@@ -11,26 +11,16 @@ const links = [
 
 <div>
   <!-- banner -->
- <div id="banner" class="md:fixed w-full top-0 inset-s-0 flex justify-center gap-10 bg-secondary-600 text-white px-1 py-3">
-  
-    <a class="px-5 text-xs md:text-lg flex space-x-2" href="tel:+23480XXXXXXXX">
-      <span>
-        <ion-icon name="location"></ion-icon>
-      </span>
-      <span>Plot No.2 Ladipo Oluwole Street, Off Oba Akran Avenue, Ikeja Lagos</span>
-    </a>
-  </div> 
-
   <!-- navbar -->
-  <nav id="navbar" class="flex justify-between rounded-full items-center md:mt-12 p-4 bg-white/70 transition-all duration-300  z-40 mx-auto w-7/8">
+  <nav id="navbar" class="flex justify-between rounded-full items-center p-4 bg-white/70 transition-all duration-300 mx-auto md:max-w-fit">
     <div>
       <a href="/" class="w-16 md:w-32">
         <img class="w-35" src="/assets/Untitled design 2.png" alt="Sagar Vitaceuticals logo" />
       </a>
     </div>
 
-    <div class="nav-links bg-white md:bg-white/0 md:static absolute md:min-h-fit min-h-[60vw] left-0 top-[-100%] md:w-auto w-full flex items-center px-1 py-1 z-50">
-      <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-12 px-4 md:px-0">
+    <div class="nav-links bg-white md:bg-white/0 md:static absolute md:min-h-fit min-h-[60vw] py-8 md:py-4 left-0 top-[-100%] md:w-auto w-full flex items-center px-4 z-50">
+      <ul class="flex md:flex-row flex-col md:items-center md:gap-8 gap-12 px-4 md:px-0">
         {links.map(({ label, href }) => (
           <li>
             <a class="hover:text-primary-900 text-primary-500" href={href}>{label}</a>
