@@ -54,8 +54,19 @@ const fieldClasses =
           <!-- Success/Error Message Area -->
           <div id="formResponse" class="hidden mb-6 p-4 rounded-lg text-sm" role="alert"></div>
 
-          <form id="contactForm" class="space-y-6" novalidate>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<form
+  id="contactForm"
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="space-y-6"
+  novalidate
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <p hidden><label>Leave this empty: <input name="bot-field" /></label></p>
+
+  <!-- ...your existing fields unchanged... -->            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="space-y-2">
                 <label for="fullName" class="text-sm font-medium text-gray-700">Full Name <span class="text-red-500">*</span></label>
                 <input type="text" id="fullName" name="fullName" required class={fieldClasses} placeholder="John Doe" />
@@ -231,12 +242,14 @@ const fieldClasses =
       e.preventDefault();
       hideResponse();
 
-      // map (not some/every) so every field gets validated and shows its own error
-      const allValid = fields.map((field) => validateField(field)).every(Boolean);
-      if (!allValid) return;
+     const res = await fetch(FORM_ENDPOINT, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  body: new URLSearchParams(new FormData(form) as any).toString(),
+});
 
       if (!FORM_ENDPOINT) {
-        showResponse("Sending isn't set up yet. Please email info@svnl.com instead.", false);
+        showResponse("Sending isn't set up yet. Please email management@svnl.com instead.", false);
         return;
       }
 
